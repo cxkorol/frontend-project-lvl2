@@ -2,9 +2,18 @@
   "name": "differences",
   "version": "1.0.0",
   "description": "Difference calculation (Вычислитель отличий)",
-  "main": "index.js",
+  "main": "dist/src/index.js",
+  "bin": {
+    "gendiff": "dist/bin/gendiff.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-node": "babel-node",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -30,5 +39,8 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.18.2"
+  },
+  "dependencies": {
+    "commander": "^2.20.1"
   }
 }
