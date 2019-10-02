@@ -28,9 +28,6 @@
   "bugs": {
     "url": "https://github.com/cxkorol/frontend-project-lvl2/issues"
   },
-  "jest": {
-    "testEnviroment": "node"
-  },
   "homepage": "https://github.com/cxkorol/frontend-project-lvl2#readme",
   "devDependencies": {
     "@babel/cli": "^7.6.2",
