@@ -2,7 +2,7 @@
   "name": "differences",
   "version": "1.0.0",
   "description": "Difference calculation (Вычислитель отличий)",
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "bin": {
     "gendiff": "dist/bin/gendiff.js"
   },
