@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import gendiff from '..';
+import gendiff from '../src';
 
 const pathToBeforeFile = path.resolve(__dirname, '__fixtures__/before.json');
 const pathToAfterFile = path.resolve(__dirname, '__fixtures__/after.json');

@@ -14,9 +14,9 @@ const compare = (object1, object2) => {
   const result = ['{'];
 
   allKeys.forEach((key) => {
-    if (object2[key] === object1[key]) result.push(`    ${key}: ${object2[key]}`);
+    if (!keys1.includes(key) && keys2.includes(key)) result.push(`  + ${key}: ${object2[key]}`);
     else if (keys1.includes(key) && !keys2.includes(key)) result.push(`  - ${key}: ${object1[key]}`);
-    else if (!keys1.includes(key) && keys2.includes(key)) result.push(`  + ${key}: ${object2[key]}`);
+    else if (object2[key] === object1[key]) result.push(`    ${key}: ${object2[key]}`);
     else {
       result.push(`  - ${key}: ${object1[key]}`);
       result.push(`  + ${key}: ${object2[key]}`);
@@ -30,4 +30,3 @@ const compare = (object1, object2) => {
 const gendiff = (file1, file2) => compare(parse(file1), parse(file2));
 
 export default gendiff;
-
