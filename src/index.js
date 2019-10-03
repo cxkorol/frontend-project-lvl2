@@ -1,11 +1,5 @@
 import _ from 'lodash/fp';
-import fs from 'fs';
-
-const parse = (path) => {
-  const rawObject = fs.readFileSync(path, 'utf-8');
-  const parsedObject = JSON.parse(rawObject);
-  return parsedObject;
-};
+import parse from './parcer';
 
 const compare = (object1, object2) => {
   const keys1 = Object.keys(object1);
