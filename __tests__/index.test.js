@@ -3,13 +3,14 @@ import path from 'path';
 import gendiff from '../src';
 
 const testFiles = [
-  ['json', 'before-tree.json', 'after-tree.json', 'result-tree.txt'],
-  ['json', 'before-tree.yml', 'after-tree.yml', 'result-tree.txt'],
+  ['tree', 'before-tree.json', 'after-tree.json', 'result-tree.txt'],
+  ['tree', 'before-tree.yml', 'after-tree.yml', 'result-tree.txt'],
   ['plain', 'before-tree.json', 'after-tree.json', 'result-plain.txt'],
+  ['json', 'before-tree.json', 'after-tree.json', 'result-json.txt'],
 ];
 
 test.each(testFiles)(
-  'gendiff(%s, %s)',
+  'gendiff(%s, %s, %s, %s)',
   (format, before, after, result) => {
     const pathToBeforeFile = path.resolve(__dirname, `__fixtures__/${before}`);
     const pathToAfterFile = path.resolve(__dirname, `__fixtures__/${after}`);

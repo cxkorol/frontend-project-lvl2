@@ -1,11 +1,13 @@
-import json from './render-json';
+import tree from './render-tree';
 import plain from './render-plain';
+import json from './render-json';
 
 const renderFormats = {
-  json,
+  tree,
   plain,
+  json,
 };
 
-const getRenderer = (format = 'json') => renderFormats[format];
+const getRenderer = (format = 'tree') => renderFormats[format];
 
 export default getRenderer;
