@@ -20,10 +20,11 @@ CLI: `gendiff-korol --help`
 
 Module: 
 
-        import gendiff from "gendiff-korol;
-        
-        gendiff(pathToFile1, pathToFile2, format)
+```js
+    import gendiff from "gendiff-korol;
 
+    gendiff(pathToFile1, pathToFile2, format)
+```
 format: `'tree' is default, 'plain', 'json'`
 
 ### Details
