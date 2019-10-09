@@ -1,6 +1,6 @@
 {
-  "name": "differences",
-  "version": "1.0.0",
+  "name": "gendiff-korol",
+  "version": "1.0.1",
   "description": "Difference calculation (Вычислитель отличий)",
   "main": "dist/index.js",
   "bin": {

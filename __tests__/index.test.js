@@ -5,8 +5,12 @@ import gendiff from '../src';
 const testFiles = [
   ['tree', 'before-tree.json', 'after-tree.json', 'result-tree.txt'],
   ['tree', 'before-tree.yml', 'after-tree.yml', 'result-tree.txt'],
+  ['tree', 'before-tree.ini', 'after-tree.ini', 'result-tree.txt'],
+  ['plain', 'before-tree.yml', 'after-tree.yml', 'result-plain.txt'],
   ['plain', 'before-tree.json', 'after-tree.json', 'result-plain.txt'],
+  ['plain', 'before-tree.ini', 'after-tree.ini', 'result-plain.txt'],
   ['json', 'before-tree.json', 'after-tree.json', 'result-json.txt'],
+  ['json', 'before-tree.ini', 'after-tree.ini', 'result-json.txt'],
 ];
 
 test.each(testFiles)(
