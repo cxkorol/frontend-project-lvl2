@@ -6,24 +6,25 @@
 
 The utility for finding differences in configuration files.
 
-Support: json, yaml, ini
+Support: `json, yaml, ini`
 
 ### Install 
 
 CLI: `npm install -g gendiff-korol`
+
 Module: `npm install --save gendiff-korol`
 
 ### Use
 
 CLI: `gendiff-korol --help`
-Module: 
-> import gendiff from "gendiff-korol;
-> gendiff(pathToFile1, pathToFile2, format)
 
-format: 'tree' is default, 'plain', 'json'
+Module: 
+        import gendiff from "gendiff-korol;
+        gendiff(pathToFile1, pathToFile2, format)
+
+format: `'tree' is default, 'plain', 'json'`
 
 ### Details
-
 <details>
     <summary>1. Tree:</summary> 
     <br>
