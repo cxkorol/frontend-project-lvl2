@@ -47,7 +47,7 @@ const makeAst = (object1, object2) => {
     },
   ];
 
-  const getMethod = (key) => conditions.find(({ check }) => check(key) === true);
+  const getMethod = (key) => conditions.find(({ check }) => check(key));
 
   const result = allKeys.map((key) => {
     const currentMethod = getMethod(key);
