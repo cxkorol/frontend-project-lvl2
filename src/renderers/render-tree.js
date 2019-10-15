@@ -1,17 +1,18 @@
 import _ from 'lodash';
 
-const tabs = (depth) => ' '.repeat(2 * depth);
+const makeTab = (times) => '  '.repeat(times);
 
 const makeString = (object, depth) => {
-  if (!(object instanceof Object)) return object;
-  const openingTab = tabs(depth + 1);
-  const closingTab = tabs(depth);
-  return `{\n${[...Object.keys(object)].map((key) => `${openingTab}${key}: ${object[key]}`)}\n${closingTab}}`;
+  if (!_.isObject(object)) return object;
+  const openingTab = makeTab(depth + 2);
+  const closingTab = makeTab(depth + 1);
+  const keys = _.keys(object);
+  return `{\n${keys.map((key) => `${openingTab}  ${key}: ${object[key]}`).join('\n')}\n${closingTab}}`;
 };
 
 const render = (ast) => {
   const iter = (data, depth = 1) => data.map((object) => {
-    const tab = tabs(depth);
+    const tab = makeTab(depth);
     const commonResultString = makeString(object.value, depth);
     switch (object.type) {
       case 'new':
@@ -21,9 +22,9 @@ const render = (ast) => {
       case 'changed':
         return [`${tab}- ${object.key}: ${makeString(object.beforeValue, depth)}`, `${tab}+ ${object.key}: ${makeString(object.afterValue, depth)}`];
       case 'unchanged':
-        return `${tab}${object.key}: ${commonResultString}`;
+        return `${tab}  ${object.key}: ${commonResultString}`;
       case 'parent':
-        return `${tab}${object.key}: {\n${_.flatten(iter(object.children, depth + 1)).join('\n')}\n${tab}}`;
+        return `${tab}  ${object.key}: {\n${_.flatten(iter(object.children, depth + 2)).join('\n')}\n${makeTab(depth + 1)}}`;
       default:
         throw new Error(`${object.type} is uncorrect`);
     }

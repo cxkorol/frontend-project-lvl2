@@ -1,4 +1,6 @@
-const makeString = (value) => (value instanceof Object ? '[complex value]' : value);
+import _ from 'lodash';
+
+const makeString = (value) => (_.isObject(value) ? '[complex value]' : value);
 
 const render = (ast) => {
   const iter = (data, path = '') => data.map((object) => {
