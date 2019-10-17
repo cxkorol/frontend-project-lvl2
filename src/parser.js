@@ -12,12 +12,12 @@ const getParseFormat = (ext) => {
   return formats[ext];
 };
 
-const fileToString = (filepath) => fs.readFileSync(filepath, 'utf-8');
+const fileToObject = (filepath) => fs.readFileSync(filepath, 'utf-8');
 const getExt = (filepath) => path.extname(filepath);
 
 const parse = (filepath) => {
   const getData = getParseFormat(getExt(filepath));
-  return getData(fileToString(filepath));
+  return getData(fileToObject(filepath));
 };
 
 export default parse;
