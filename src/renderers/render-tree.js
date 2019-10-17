@@ -13,16 +13,16 @@ const makeString = (object, depth) => {
 const render = (ast) => {
   const iter = (data, depth = 1) => data.map((object) => {
     const tab = makeTab(depth);
-    const commonResultString = makeString(object.value, depth);
+    const text = makeString(object.value, depth);
     switch (object.type) {
       case 'new':
-        return `${tab}+ ${object.key}: ${commonResultString}`;
+        return `${tab}+ ${object.key}: ${text}`;
       case 'deleted':
-        return `${tab}- ${object.key}: ${commonResultString}`;
+        return `${tab}- ${object.key}: ${text}`;
       case 'changed':
         return [`${tab}- ${object.key}: ${makeString(object.beforeValue, depth)}`, `${tab}+ ${object.key}: ${makeString(object.afterValue, depth)}`];
       case 'unchanged':
-        return `${tab}  ${object.key}: ${commonResultString}`;
+        return `${tab}  ${object.key}: ${text}`;
       case 'parent':
         return `${tab}  ${object.key}: {\n${_.flatten(iter(object.children, depth + 2)).join('\n')}\n${makeTab(depth + 1)}}`;
       default:
