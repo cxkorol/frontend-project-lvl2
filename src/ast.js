@@ -15,7 +15,7 @@ const makeAst = (object1, object2) => {
     {
       check: (key) => !_.has(object1, key),
       diffType: (key) => ({
-        type: 'new',
+        type: 'added',
         key,
         value: object2[key],
       }),

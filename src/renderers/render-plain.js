@@ -5,7 +5,7 @@ const makeString = (value) => (_.isObject(value) ? '[complex value]' : value);
 const render = (ast) => {
   const iter = (data, path = '') => data.map((object) => {
     switch (object.type) {
-      case 'new':
+      case 'added':
         return `Property ${path}${object.key} was added with value: ${makeString(object.value)}`;
       case 'deleted':
         return `Property ${path}${object.key} was removed`;

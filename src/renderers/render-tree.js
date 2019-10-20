@@ -15,7 +15,7 @@ const render = (ast) => {
     const tab = makeTab(depth);
     const text = makeString(object.value, depth);
     switch (object.type) {
-      case 'new':
+      case 'added':
         return `${tab}+ ${object.key}: ${text}`;
       case 'deleted':
         return `${tab}- ${object.key}: ${text}`;
